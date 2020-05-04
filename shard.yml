@@ -1,0 +1,22 @@
+name: onyx
+version: 0.1.0
+
+authors:
+  - Uzay-G <uzgirit@gmail.com>
+
+targets:
+  onyx:
+    main: src/onyx.cr
+
+crystal: 0.34.0
+
+license: MIT
+
+dependencies:
+  discordcr:
+    github: discordcr/discordcr
+    branch: cr-0.34
+  clear:
+    github: anykeyh/clear
+    branch: master
+  
