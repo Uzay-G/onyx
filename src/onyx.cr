@@ -3,8 +3,8 @@ require "yaml"
 require "discordcr"
 require "clear"
 
-Clear::SQL.init("postgres://onyx:password@ip6-localhost/onyx", connection_pool_size: 5)
-
+Clear::SQL.init("postgres://onyx:password@localhost/onyx", connection_pool_size: 5)
+Bothosting = CLient.init(token)
 CONFIG = YAML.parse(File.read("./config.yaml"))
 client = Discord::Client.new(token: CONFIG["discord_token"].to_s, client_id: CONFIG["client_id"].to_s.to_u64)
 
@@ -12,6 +12,7 @@ client.on_message_create do |message|
   author = message.author
   commands = message.content.strip.split(" ")
   if commands[0].starts_with? "~"
+    BotHosting.send_commands(commands[0])
     user = nil
     if commands[0] == "~pin"
       begin
@@ -91,9 +92,9 @@ client.on_message_create do |message|
       end
     elsif commands[0] == "~help"
       help = "**~pin**, saves the last message to your bookmarks or specify text to save
-              **~delete <id>**, delete bookmark from your collection
-              **~deleteall**, delete your entire collection of bookmarks
-              **~list**, sends all your bookmarks to dms"
+**~delete <id>**, delete bookmark from your collection
+**~deleteall**, delete your entire collection of bookmarks
+**~list**, sends all your bookmarks to dms"
       client.create_message(message.channel_id, help)
     end
   end

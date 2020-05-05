@@ -1,11 +1,28 @@
 # onyx
 
-TODO: Write a description here
+Onyx is a Crystal bot that serves as a knowledge database and bookmarking client for discord.
+
+[Invite the bot to your server](https://discord.com/api/oauth2/authorize?client_id=706904633695666177&permissions=0&scope=bot)
+
+It saves user-specific bookmarks to save interesting messages you received for later.
+
+**`~help`** to get a list of all commands.
+Run `~pin` to save the immediate previous message or do `~pin <message>` to save a specific message. (Supports code snippets and markdown)
+
+`~delete <id>` to delete a specific bookmark.
+`~deleteall`, pretty obvious
+`~list` sends you a dm with all your bookmarks.
 
 ## Installation
 
-TODO: Write installation instructions here
+Clone the github repository.
 
+Run `shards install`
+
+Create a `config.yaml` file with your `discord_token` and `client_id`.
+
+Setup the postgres database based on the orm schema in `src/db.cr`.
+And then do `crystal run src/onyx.cr` to launch your bot.
 ## Usage
 
 TODO: Write usage instructions here
