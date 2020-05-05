@@ -3,7 +3,7 @@ require "yaml"
 require "discordcr"
 require "clear"
 
-Clear::SQL.init("postgres://onyx:password@localhost/onyx", connection_pool_size: 5)
+Clear::SQL.init("postgres://onyx:password@ip6-localhost/onyx", connection_pool_size: 5)
 Bothosting = CLient.init(token)
 CONFIG = YAML.parse(File.read("./config.yaml"))
 client = Discord::Client.new(token: CONFIG["discord_token"].to_s, client_id: CONFIG["client_id"].to_s.to_u64)
